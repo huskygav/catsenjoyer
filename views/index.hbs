@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>КОТЫЫЫЫ</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body class="container">
+       <header>
+        <h1>Приют КОТОВ</h1>
+        <a href="/">Ищут дом</a>
+        <a href="/is-home">Уже дома</a>
+        <a href="/search">Поиск</a>
+        <a href="/admin">АДМИНКА (СЕКРЕТНО)</a>
+       </header>
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
+            {{#each items}}
+            <div class="col">
+                <div class="card">
+                    <img src="{{this.image}}" alt="" class="card-image-top">
+                    <div class="card-body">
+                        <h5>
+                            {{this.name}}
+                            <span class="badge {{this.sex}}">{{this.sex}}</span>
+                        </h5>
+                        <p class="card-text">
+                            Порода: {{this.breed}} <br>
+                            Возраст: {{this.age}}
+                        </p>
+                        {{#if this.isActive}}
+                            <a href="/home?id={{this.id}}">Хочу забрать</a>
+                            {{else}}
+                            <b>Кот уже дома</b>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+       </div>
+    </body>
+</html>

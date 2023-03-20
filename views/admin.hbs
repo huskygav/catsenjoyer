@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>КОТЫЫЫЫ</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <link rel="stylesheet" href="public/index.css">
+    </head>
+    <body>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Фото</th>
+      <th scope="col">Кличка</th>
+      <th scope="col">Возраст</th>
+      <th scope="col">Пол</th>
+      <th scope="col">Порода</th>
+      <th scope="col">Уже дома?</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each items}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td><img src="{{this.image}}" alt=""></td>
+      <td>{{this.name}}</td>
+      <td>{{this.age}}</td>
+      <td>{{this.sex}}</td>
+      <td>{{this.breed}}</td>
+      <td>
+        {{#if this.isWanted}}
+            <a href="/admin-home?id={{this.id}}">Хотят забрать</a>
+              {{else}}
+                {{#if this.isActive}}
+                В поисках дома
+                {{else}}
+                Уже дома
+            {{/if}}
+        {{/if}}
+      </td>
+    </tr>  
+    {{/each}}
+  </tbody>
+</table>
+</body>
+</html>
